@@ -6,10 +6,11 @@
 .details {
   height: 100% !important;
 
-  .card-header{
+  > .card-header{
     border-bottom: 5px solid black;
     display: flex;
     justify-content: flex-end;
+    border-top-left-radius: var(--bs-border-radius) !important;
 
     &.pokeball{
       background-color: $pokePrimary;
@@ -31,9 +32,15 @@
   .card-body{
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
+
+    &:not(.movelist_body){
+      border-bottom-left-radius: var(--bs-border-radius);
+      border-bottom-right-radius: var(--bs-border-radius);
+    }
   }
 
   .card-footer{
     background-color: $ballTertiary;
+    border-bottom-left-radius: var(--bs-border-radius) !important;
   }
 }

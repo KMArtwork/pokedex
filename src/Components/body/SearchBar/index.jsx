@@ -73,7 +73,6 @@ function SearchBar (props) {
     }
     
     const handleDropdownClick = (event) => {
-      console.log(event.target.innerText)
       dispatch(handleSearchInputChange(event.target.innerText))
     }
 
@@ -81,31 +80,30 @@ function SearchBar (props) {
     return(
       <Container>
         <Dropdown>
-        <Form 
-          onSubmit={handleSearch} 
-          id='searchbar'
-        >
-          <Dropdown.Toggle
-            as={'input'}
-            id='search_input' 
-            type="text" 
-            placeholder='Search by name or id...' 
-            className='form-control'
-            onChange={handleOnChange}
-            value={pokeState.searchInput}
-          />
-
-          <Button 
-            type='submit' 
-            className={settingsState.theme}
-            onClick={handleSearch} 
+          <Form 
+            onSubmit={handleSearch} 
+            id='searchbar'
           >
-            Search
-          </Button>
-        </Form>
+            <Dropdown.Toggle
+              as={'input'}
+              id='search_input' 
+              type="text" 
+              placeholder='Search by name or id...' 
+              className='form-control'
+              onChange={handleOnChange}
+              value={pokeState.searchInput}
+            />
 
-        
-          <Dropdown.Menu show={true} id='search_suggestions'>
+            <Button 
+              type='submit' 
+              className={settingsState.theme}
+              onClick={handleSearch} 
+            >
+              Search
+            </Button>
+          </Form>
+          
+          <Dropdown.Menu show={suggestions.length ? true : false} id='search_suggestions'>
               {suggestions.length ? suggestions.map((name, idx) => <Dropdown.Item eventKey={idx} onClick={handleDropdownClick}>{name}</Dropdown.Item>) : null}
           </Dropdown.Menu>
         </Dropdown>

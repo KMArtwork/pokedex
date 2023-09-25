@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPlay} from '@fortawesome/free-solid-svg-icons'
+import {faBullhorn, faCirclePlay, faExclamation, faMusic, faPlay} from '@fortawesome/free-solid-svg-icons'
 
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
@@ -20,6 +20,7 @@ import dexSlice from "../../../../reduxStore/dexSlice";
 
 function Pokedex (props) {
   const pokeState = useSelector(state => state.pokemon);
+  const dexState = useSelector(state => state.pokedex)
   const settingsState = useSelector(state => state.settings);
   const dispatch = useDispatch();
   const { toggleShiny, changeFormIdx, setPokemon } = pokeSlice.actions
@@ -156,7 +157,7 @@ function Pokedex (props) {
           <Card.Header>
             {/* pokedex lights */}
             <div id="light-container">
-              <div id="blue-light"></div>
+              <div id="blue-light" className={dexState.isLoading ? "blink" : null}></div>
               <div id="red-light"></div>
               <div id="yellow-light"></div>
               <div id="green-light"></div>
@@ -179,7 +180,8 @@ function Pokedex (props) {
             <Container id='pokedex-bottom-ui'>
               
               <Container id='bottom-ui-circlebutton'>
-                <Container id='circlebutton' onClick={playAudio}>                   
+                <Container id='circlebutton' onClick={playAudio}>
+                  <FontAwesomeIcon icon={faCirclePlay}/>
                 </Container>
               </Container>
 

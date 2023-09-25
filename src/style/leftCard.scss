@@ -10,6 +10,18 @@
   border-radius: 50%;
   background-color: #009fff;
   border: 0.35rem solid white;
+
+  &.blink{
+    animation-name: lightblink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes lightblink{
+  0% {background-color: #009fff;}
+  50% {background-color: rgb(44, 213, 255); box-shadow: 0px 0px 20px rgb(0, 204, 255);}
+  100% {background-color: #009fff;}
 }
 
 #red-light, #yellow-light, #green-light {
@@ -125,9 +137,18 @@
   height: 65px;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
   &:hover{
     background-color: grey;
+  }
+
+  > * {
+    height: 100%;
+    // border: 1px solid red;
+    color: rgba(0, 0, 0, 20%);
   }
 }
 

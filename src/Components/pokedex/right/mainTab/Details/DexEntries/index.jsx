@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { Placeholder, Button } from "react-bootstrap";
+import { capitalizeString } from '../../../../../../lib/helperFuncs'
 
 function DexEntries({dexEntry, handleChangeDexEntry}) {
 
@@ -25,7 +26,7 @@ function DexEntries({dexEntry, handleChangeDexEntry}) {
               <h6>
                 {
                   !dexState.isLoading ? 
-                  `Version: ${pokeState.pokemon?.descriptions[dexEntry].version}` 
+                  `Version: ${capitalizeString(pokeState.pokemon?.descriptions[dexEntry].version)}` 
                   : 
                   <Placeholder animation="glow">
                     <Placeholder style={{width: '200px'}} />

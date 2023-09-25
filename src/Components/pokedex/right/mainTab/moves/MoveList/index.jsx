@@ -5,6 +5,8 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import { useSelector } from 'react-redux';
 
+import { capitalizeString, removeHyphens } from '../../../../../../lib/helperFuncs'
+
 function MoveList (props) {
 
   const [sortedByLevel, setSortedByLevel] = useState(false);
@@ -32,7 +34,6 @@ function MoveList (props) {
   // modular method for all properties
   const sortMoves = (arr, property) => {
     arr.sort((a,b) => {
-      // console.log(typeof a[property], typeof b[property])
       if(a[property] < b[property]){
         return -1;
       } else if (a[property] > b[property]) {
@@ -65,7 +66,7 @@ function MoveList (props) {
               <tbody>
                 <tr>
                   <td>{element.levelLearned}</td>
-                  <td>{element.name}</td>
+                  <td>{capitalizeString(removeHyphens(element.name))}</td>
                   <td>{element.power}</td>
                   <td>{element.accuracy}</td>
                   <td>{element.pp}</td>

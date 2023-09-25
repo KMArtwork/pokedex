@@ -40,7 +40,6 @@ $headerfooterverticalpadding: 2rem;
   background-color: $background;
   color: white;
   border-bottom: $headerfooterborderwidth solid black;
-  // margin: 0 0 $headerfooterverticalmargin 0;
   padding: $headerfooterverticalpadding 0 !important;
   display: flex;
   flex-direction: column;
@@ -113,7 +112,7 @@ $headerfooterverticalpadding: 2rem;
   transform: scaleY(1);
   background-color: gainsboro;
   color: $pokedex;
-  /* border-top: 1rem solid black; */
+  border-top: 1rem solid black;
   // margin: $headerfooterverticalmargin 0 0 0;
   padding: $headerfooterverticalpadding 0;
   display: flex;
@@ -162,7 +161,7 @@ $headerfooterverticalpadding: 2rem;
   margin: 0;
   background-color: $background;
   position: absolute;
-  bottom: 67.25%;
+  bottom:75%;
   /* z-index: -5; */
 }
 

@@ -119,7 +119,7 @@ function Learnset (props) {
   
     <Card id='learnset' className={`details ${settingsState.theme}`}>
       <Card.Header className={settingsState.theme} style={{justifyContent: 'space-between', color: 'white', fontWeight: '700'}}>
-        {activeGeneration}
+        {pokeState.pokemon ? activeGeneration : '--'}
         <Nav variant='tabs' defaultActiveKey={activeKey}>
           <Nav.Item className='subCard'>
             <Nav.Link className={settingsState.theme} eventKey={0} onClick={() => setActiveKey(0)}>Level</Nav.Link>
