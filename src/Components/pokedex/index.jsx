@@ -9,13 +9,13 @@ import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
 // react components
-import RightCard from "../../right/RightCard";
-import PokemonDisplay from "../../left/Display";
-import BaseStats from "../BaseStats";
+import RightCard from "./right/RightCard";
+import PokemonDisplay from "./left/Display";
+import BaseStats from "./left/BaseStats";
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import pokeSlice from "../../../../reduxStore/pokeSlice";
-import dexSlice from "../../../../reduxStore/dexSlice";
+import pokeSlice from "../../reduxStore/pokeSlice";
+import dexSlice from "../../reduxStore/dexSlice";
 
 
 function Pokedex (props) {
@@ -224,6 +224,7 @@ function Pokedex (props) {
         <RightCard />
 
       </CardGroup>
+
     </Container>
     
   )

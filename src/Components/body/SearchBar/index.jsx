@@ -78,7 +78,7 @@ function SearchBar (props) {
 
 
     return(
-      <Container>
+      <Container id='searchbar_container'>
         <Dropdown>
           <Form 
             onSubmit={handleSearch} 

@@ -4,14 +4,14 @@ import Spinner from 'react-bootstrap/Spinner';
 import sprites from '../../../../lib/sprites';
 
 function PokemonDisplay (props){
-  const state = useSelector(state => state.pokemon)
+  const pokeState = useSelector(state => state.pokemon)
   const dexState = useSelector(state => state.pokedex);
 
   const [missingSprites, setMissingSprites] = useState(null);
 
   const getMissingSprites = () => {
-    if (sprites[state.pokemon.name]) {
-      setMissingSprites(sprites[state.pokemon.name])
+    if (sprites[pokeState.pokemon.name]) {
+      setMissingSprites(sprites[pokeState.pokemon.name])
     } else {
       setMissingSprites(null)
     }
@@ -30,38 +30,38 @@ function PokemonDisplay (props){
       {
         !dexState.isLoading ? 
           missingSprites ? 
-            state.formIdx === 0 ? 
-              state.showShiny ? 
+            pokeState.formIdx === 0 ? 
+              pokeState.showShiny ? 
                 <img 
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${state.pokemon.forms[state.formIdx].apiId}.png`}
-                alt={`official shiny artwork for ${state.pokemon.name}`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokeState.pokemon.forms[pokeState.formIdx].apiId}.png`}
+                alt={`official shiny artwork for ${pokeState.pokemon.name}`}
                 /> 
               : 
                 <img 
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${state.pokemon.forms[state.formIdx].apiId}.png`}
-                alt={`official artwork for ${state.pokemon.name}`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeState.pokemon.forms[pokeState.formIdx].apiId}.png`}
+                alt={`official artwork for ${pokeState.pokemon.name}`}
                 /> 
             : 
-              state.showShiny ? 
+              pokeState.showShiny ? 
                 <img
-                src={missingSprites[state.formIdx - 1]}
+                src={missingSprites[pokeState.formIdx - 1]}
                 alt="placeholder description"
                 /> 
               : 
                 <img
-                src={missingSprites[state.formIdx - 1]}
+                src={missingSprites[pokeState.formIdx - 1]}
                 alt="placeholder description"
                 /> 
           : 
-            state.showShiny ? 
+            pokeState.showShiny ? 
               <img 
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${state.pokemon.forms[state.formIdx].apiId}.png`}
-              alt={`official shiny artwork for ${state.pokemon.name}`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokeState.pokemon.forms[pokeState.formIdx].apiId}.png`}
+              alt={`official shiny artwork for ${pokeState.pokemon.name}`}
               /> 
             : 
               <img 
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${state.pokemon.forms[state.formIdx].apiId}.png`}
-              alt={`official artwork for ${state.pokemon.name}`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeState.pokemon.forms[pokeState.formIdx].apiId}.png`}
+              alt={`official artwork for ${pokeState.pokemon.name}`}
               /> 
         : 
         <>
